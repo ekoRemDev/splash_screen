@@ -46,6 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
   final Color colorGradient2 = Color.fromRGBO(44,213,196, 1);
   final Color colorGradient3 = Color.fromRGBO(161,214,202, 1);
   final Color colorGradient4 = Color.fromRGBO(44,213,196, 1);
+  final Color colorTitle = Color.fromRGBO(255,255,255, 1);
+  final Color colorSlogan = Color.fromRGBO(255,255,255, 0.6);
 
 
   @override
@@ -71,73 +73,92 @@ class _MyHomePageState extends State<MyHomePage> {
                       colorGradient3,
                       colorGradient4
                     ])),
-          )
-          ,
+          ),
+
+
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    width: 150,
-                    height: 150,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25),
-                      border: Border.all(color: colorGradient4),
+
+              // logo
+              Container(
+                height: MediaQuery.of(context).size.height * 0.60,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 150,
+                      height: 150,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25),
+                        border: Border.all(color: colorGradient4),
                         image: new DecorationImage(
                           image: new AssetImage('assets/appicon.png'),
                           fit: BoxFit.contain ,
                         ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black,
-                          blurRadius: 1.0,
-                          spreadRadius: 1.0,
-                          offset: Offset(0.0, 3.0,), // shadow direction: bottom right
-                        )
-                      ],
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black,
+                            blurRadius: 1.0,
+                            spreadRadius: 0.0,
+                            offset: Offset(0.0, 2.0,), // shadow direction: bottom right
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
 
-              SizedBox(height: MediaQuery.of(context).size.height * 0.10,),
-
-              Text("PIU", style:  TextStyle(
-                  fontSize: 38.0,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w400
-              ),),
-
-              SizedBox(height: MediaQuery.of(context).size.height * 0.10,),
-
-              Text("Meetings made easy", style:  TextStyle(
-                  fontSize: 22.0,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w400
-              ),),
-
-
-              SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
-
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Image.asset(
-                          'assets/loading.gif',
-                          width: 50,
-                          height: 50
-                      ),
-                    ],
+              // title
+              Container(
+                height: MediaQuery.of(context).size.height * 0.10,
+                child: Text(
+                  "PIU",
+                  style: TextStyle(
+                      fontSize: 42.0,
+                      color: colorTitle,
+                      fontWeight: FontWeight.w600,
                   ),
-                ],
-              )
+                ),
+              ),
+
+              // slogan
+              Container(
+                height: MediaQuery.of(context).size.height * 0.10,
+                child: Text(
+                  "Meetings made easy",
+                  style: TextStyle(
+                      fontSize: 24.0,
+                      color: colorSlogan,
+                      fontWeight: FontWeight.w400,
+                  fontStyle: FontStyle.italic),
+                ),
+              ),
+
+              Container(
+                height: MediaQuery.of(context).size.height * 0.20,
+                child:  Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Image.asset(
+                            'assets/loading.gif',
+                            width: 50,
+                            height: 50
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
+
+
 
 
             ],
